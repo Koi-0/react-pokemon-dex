@@ -9,18 +9,13 @@ const RootLayout = ({ children }) => {
     );
 };
 
-const RootLayoutContainer = styled.div`
-    max-width: 1280px;
-    /* width: 100%; */
-    margin: 0 auto;
-    /* padding: 20px; */
-    /* text-align: center; */
-    /* background-color: yellowGreen; */
+const RootLayoutContainer = styled.main`
+    width: 100%;
 `;
 
 const RootLayoutContent = styled.div`
-    /* width: 100%; */
-    /* background-color: gray; */
+    max-width: 1280px;
+    margin: 0 auto;
 `;
 
 export default RootLayout;

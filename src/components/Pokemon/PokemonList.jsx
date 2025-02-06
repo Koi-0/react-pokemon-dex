@@ -3,8 +3,6 @@ import MOCK_DATA from "../../data/mock-data"; // Pokemon 데이터 가져오기
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = () => {
-    // console.log(MOCK_DATA); // 출력 확인 완료
-
     return (
         <div>
             <PokemonCardList>

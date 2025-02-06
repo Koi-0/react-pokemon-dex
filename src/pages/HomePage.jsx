@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const Home = () => {
+const HomePage = () => {
     const navigate = useNavigate();
 
     return (
@@ -33,12 +33,11 @@ const HomeImg = styled.img`
     margin-bottom: 20px;
 `;
 
-const HomeButton = styled.div`
+const HomeButton = styled.button`
     color: white;
     background-color: rgb(255, 0, 0);
     font-size: 18px;
     padding: 10px 20px;
-    /* border: none; */
     border-radius: 5px;
     transition: background-color 0.3s;
     &:hover {
@@ -47,4 +46,4 @@ const HomeButton = styled.div`
     cursor: pointer;
 `;
 
-export default Home;
+export default HomePage;

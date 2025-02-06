@@ -26,7 +26,6 @@ const PokemonCardDiv = styled.div`
         transform: translateY(-5px);
         box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
     }
-    /* overflow: hidden; */
 `;
 
 const PokemonCardImg = styled.img`

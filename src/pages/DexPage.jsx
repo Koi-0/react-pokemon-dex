@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import PokemonContainer from "../components/Pokemon/PokemonContainer";
 
-const Dex = () => {
+const DexPage = () => {
     const navigate = useNavigate();
 
     return (
@@ -18,4 +18,4 @@ const Dex = () => {
     );
 };
 
-export default Dex;
+export default DexPage;
