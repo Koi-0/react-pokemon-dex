@@ -1,3 +1,5 @@
+// Pokemon 데이터
+
 const MOCK_DATA = [
     {
         img_url: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
