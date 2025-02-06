@@ -25,6 +25,7 @@ const HomeWrapper = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: #ffdfad;
 `;
 
 const HomeImg = styled.img`
