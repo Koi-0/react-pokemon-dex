@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const PokemonCard = ({ pokemon }) => {
+    const handleAddButton = () => {
+        console.log(`[${pokemon.korean_name}] 추가되었습니다.`);
+        alert(`[${pokemon.korean_name}] 추가되었습니다.`);
+    };
+
     return (
         <PokemonCardDiv>
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
@@ -8,7 +13,7 @@ const PokemonCard = ({ pokemon }) => {
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
                 <PokemonCardId>No.{pokemon.id}</PokemonCardId>
             </PokemonCardContent>
-            <PokemonCardButton>추가</PokemonCardButton>
+            <PokemonCardButton onClick={handleAddButton}>추가</PokemonCardButton>
         </PokemonCardDiv>
     );
 };

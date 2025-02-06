@@ -1,8 +1,15 @@
 import styled from "styled-components";
 import PokemonDashboard from "./PokemonDashboard";
 import PokemonList from "./PokemonList";
+// import { useState } from "react";
 
 const PokemonContainer = () => {
+    // const [addCards, setAddCards] = useState([]);
+
+    // const addPokemon = () => {};
+
+    // const removePokemon = () => {};
+
     return (
         <PokemonWrapper>
             <PokemonDashboard />
