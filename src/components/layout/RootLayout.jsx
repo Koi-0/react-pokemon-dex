@@ -10,17 +10,17 @@ const RootLayout = ({ children }) => {
 };
 
 const RootLayoutContainer = styled.div`
-    /* max-width: 1280px; */
+    max-width: 1280px;
     /* width: 100%; */
-    /* margin: 0 auto; */
+    margin: 0 auto;
     /* padding: 20px; */
     /* text-align: center; */
-    /* background-color: yellowGreen; */
+    background-color: yellowGreen;
 `;
 
 const RootLayoutContent = styled.div`
     /* width: 100%; */
-    /* background-color: gray; */
+    background-color: gray;
 `;
 
 export default RootLayout;
