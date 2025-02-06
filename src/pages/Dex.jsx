@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import PokemonList from "../components/Pokemon/PokemonList";
+import PokemonContainer from "../components/Pokemon/PokemonContainer";
+import styled from "styled-components";
 
 const Dex = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <PokemonWrapper>
             <button
                 onClick={() => {
                     navigate("/");
@@ -13,9 +14,13 @@ const Dex = () => {
             >
                 Home
             </button>
-            <PokemonList />
-        </div>
+            <PokemonContainer />
+        </PokemonWrapper>
     );
 };
+
+const PokemonWrapper = styled.div`
+    padding: 20px;
+`;
 
 export default Dex;
