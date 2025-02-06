@@ -21,7 +21,11 @@ const PokemonCardDiv = styled.div`
     text-align: center;
     padding: 10px;
     cursor: pointer;
-    /* transition: transform 0.2s, box-shadow 0.2s; */
+    transition: transform 0.2s, box-shadow 0.2s;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px;
+    }
     /* overflow: hidden; */
 `;
 
