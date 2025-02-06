@@ -5,6 +5,7 @@ const Home = () => {
 
     return (
         <div>
+            <img src="https://react-6-pokemon.vercel.app/assets/pokemon-logo-RN0wntMB.png" alt="Pokemon Logo" />
             <button
                 onClick={() => {
                     navigate("/dex");
@@ -15,5 +16,7 @@ const Home = () => {
         </div>
     );
 };
+
+// const HomeWrapper = styled.div``;
 
 export default Home;
