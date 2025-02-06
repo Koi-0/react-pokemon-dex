@@ -1,12 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import PokemonContainer from "../components/Pokemon/PokemonContainer";
-import styled from "styled-components";
 
 const Dex = () => {
     const navigate = useNavigate();
 
     return (
-        <PokemonWrapper>
+        <div>
             <button
                 onClick={() => {
                     navigate("/");
@@ -15,12 +14,8 @@ const Dex = () => {
                 Home
             </button>
             <PokemonContainer />
-        </PokemonWrapper>
+        </div>
     );
 };
-
-const PokemonWrapper = styled.div`
-    padding: 20px;
-`;
 
 export default Dex;

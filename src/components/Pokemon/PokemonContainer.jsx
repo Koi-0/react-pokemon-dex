@@ -1,5 +1,13 @@
+import PokemonDashboard from "./PokemonDashboard";
+import PokemonList from "./PokemonList";
+
 const PokemonContainer = () => {
-    return <div>PokemonContainer 컴포넌트 영역입니다.</div>;
+    return (
+        <div>
+            <PokemonDashboard />
+            <PokemonList />
+        </div>
+    );
 };
 
 export default PokemonContainer;
