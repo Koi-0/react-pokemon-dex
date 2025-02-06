@@ -15,12 +15,12 @@ const RootLayoutContainer = styled.div`
     margin: 0 auto;
     /* padding: 20px; */
     /* text-align: center; */
-    /* background-color: yellowGreen; */
+    background-color: yellowGreen;
 `;
 
 const RootLayoutContent = styled.div`
     /* width: 100%; */
-    /* background-color: gray; */
+    background-color: gray;
 `;
 
 export default RootLayout;
