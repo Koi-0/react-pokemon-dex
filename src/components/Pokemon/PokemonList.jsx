@@ -2,12 +2,12 @@ import styled from "styled-components";
 import MOCK_DATA from "../../data/mock-data"; // Pokemon 데이터 가져오기
 import PokemonCard from "./PokemonCard";
 
-const PokemonList = () => {
+const PokemonList = ({ addPokemon }) => {
     return (
         <div>
             <PokemonCardList>
                 {MOCK_DATA.map((pokemon) => (
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} />
+                    <PokemonCard key={pokemon.id} pokemon={pokemon} addPokemon={addPokemon} />
                 ))}
             </PokemonCardList>
         </div>

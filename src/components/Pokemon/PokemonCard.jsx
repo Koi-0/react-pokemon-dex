@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, addPokemon }) => {
     const handleAddButton = () => {
-        console.log(`[${pokemon.korean_name}] 추가되었습니다.`);
-        alert(`[${pokemon.korean_name}] 추가되었습니다.`);
+        addPokemon(pokemon);
     };
 
     return (
-        <PokemonCardDiv>
+        <PokemonCardDiv addPokemon={addPokemon}>
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
             <PokemonCardContent>
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
