@@ -7,7 +7,6 @@ const PokemonList = () => {
 
     return (
         <div>
-            <h1>나만의 포켓몬</h1>
             <PokemonCardList>
                 {MOCK_DATA.map((pokemon) => (
                     <PokemonCard key={pokemon.id} pokemon={pokemon} />
