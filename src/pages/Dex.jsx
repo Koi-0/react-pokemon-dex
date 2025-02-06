@@ -1,5 +1,21 @@
+import { useNavigate } from "react-router-dom";
+import PokemonList from "../components/Pokemon/PokemonList";
+
 const Dex = () => {
-    return <div>Dex 컴포넌트입니다.</div>;
+    const navigate = useNavigate();
+
+    return (
+        <div>
+            <button
+                onClick={() => {
+                    navigate("/");
+                }}
+            >
+                Home
+            </button>
+            <PokemonList />
+        </div>
+    );
 };
 
 export default Dex;

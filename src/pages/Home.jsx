@@ -1,10 +1,17 @@
-import PokemonList from "../components/Pokemon/PokemonList";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <div>
-            Home 컴포넌트입니다.
-            <PokemonList />
+            <button
+                onClick={() => {
+                    navigate("/dex");
+                }}
+            >
+                포켓몬 도감 시작하기
+            </button>
         </div>
     );
 };
