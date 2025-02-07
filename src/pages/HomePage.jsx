@@ -2,14 +2,18 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const HomePage = () => {
+    // 페이지 이동을 위한 `useNavigate` 훅 사용
     const navigate = useNavigate();
 
     return (
         <HomeWrapper>
+            {/* 포켓몬 로고 이미지 */}
             <HomeImg src="https://react-6-pokemon.vercel.app/assets/pokemon-logo-RN0wntMB.png" alt="Pokemon Logo" />
+
+            {/* 버튼 클릭 시 /dex 페이지로 이동 */}
             <HomeButton
                 onClick={() => {
-                    navigate("/dex");
+                    navigate("/dex"); // useNavigate를 사용하여 "/dex" 경로로 이동
                 }}
             >
                 포켓몬 도감 시작하기
@@ -17,6 +21,8 @@ const HomePage = () => {
         </HomeWrapper>
     );
 };
+
+/* 스타일 정의 (styled-components) */
 
 const HomeWrapper = styled.div`
     width: 100%;
