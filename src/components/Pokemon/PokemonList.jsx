@@ -14,6 +14,8 @@ const PokemonList = ({ addPokemon }) => {
     );
 };
 
+/* 스타일 정의 (styled-components) */
+
 const PokemonCardList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
