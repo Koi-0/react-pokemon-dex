@@ -6,6 +6,7 @@ const PokemonList = ({ addPokemon }) => {
     return (
         <div>
             <PokemonCardList>
+                {/* MOCK_DATA를 순회하며 PokemonCard 컴포넌트 생성 */}
                 {MOCK_DATA.map((pokemon) => (
                     <PokemonCard key={pokemon.id} pokemon={pokemon} addPokemon={addPokemon} />
                 ))}
@@ -13,6 +14,8 @@ const PokemonList = ({ addPokemon }) => {
         </div>
     );
 };
+
+/* 스타일 정의 (styled-components) */
 
 const PokemonCardList = styled.div`
     display: grid;
