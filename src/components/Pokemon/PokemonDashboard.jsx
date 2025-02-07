@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
+// 기본 포켓볼 이미지 URL
 const PokemonBallImgUrl = "https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png";
 
 const PokemonDashboard = ({ addCards }) => {
+    // 6개의 기본 카드(포켓볼 이미지) 생성
     const defaultCards = [...Array(6)].map((_, index) => ({
         id: index,
         img_url: PokemonBallImgUrl,
-        korean_name: "기본 포켓몬",
+        korean_name: "pokemon_ball_default_image",
     }));
 
+    // 추가된 포켓몬을 보여주는 함수
     const cardsToDisplay = defaultCards.map((card, index) => {
         // addCards 배열에 추가된 포켓몬이 있을 경우, 첫 번째 카드만 바꾸기
         if (addCards[index]) {
             return {
                 ...card,
-                img_url: addCards[index].img_url, // 추가된 포켓몬의 이미지로 바꿔주기
-                korean_name: addCards[index].korean_name, // 추가된 포켓몬 이름으로 바꾸기
+                img_url: addCards[index].img_url, // 추가된 포켓몬의 이미지 적용
+                korean_name: addCards[index].korean_name, // 추가된 포켓몬의 이름 적용
             };
         }
         return card;
@@ -36,6 +39,8 @@ const PokemonDashboard = ({ addCards }) => {
         </PokemonDashboardSection>
     );
 };
+
+/* 스타일 정의 (styled-components) */
 
 const PokemonDashboardSection = styled.div`
     display: flex;
