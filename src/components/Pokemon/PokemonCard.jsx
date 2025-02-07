@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, addPokemon }) => {
+const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
     // "추가" 버튼 클릭 시 실행되는 함수
     const handleAddButton = () => {
         addPokemon(pokemon); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
+    };
+
+    // "삭제" 버튼 클릭 시 실행되는 함수
+    const handleDeleteButton = () => {
+        console.log("삭제하려는 포켓몬:", pokemon); // 삭제할 포켓몬을 확인
+        removePokemon(pokemon);
     };
 
     return (
@@ -18,7 +24,9 @@ const PokemonCard = ({ pokemon, addPokemon }) => {
             </PokemonCardContent>
 
             {/* 포켓몬 추가 버튼 */}
-            <PokemonCardButton onClick={handleAddButton}>추가</PokemonCardButton>
+            <PokemonCardAddButton onClick={handleAddButton}>추가</PokemonCardAddButton>
+            <PokemonCardAddButton onClick={handleDeleteButton}>삭제</PokemonCardAddButton>
+            <br />
         </PokemonCardDiv>
     );
 };
@@ -61,7 +69,7 @@ const PokemonCardId = styled.p`
     font-size: 12px;
 `;
 
-const PokemonCardButton = styled.button`
+const PokemonCardAddButton = styled.button`
     color: rgb(255, 255, 255);
     background-color: rgb(255, 0, 0);
     margin: 10px 0px;

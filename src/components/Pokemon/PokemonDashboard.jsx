@@ -4,7 +4,7 @@ import PokemonCard from "./PokemonCard";
 // 기본 포켓볼 이미지 URL
 const PokemonBallImgUrl = "https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png";
 
-const PokemonDashboard = ({ addCards }) => {
+const PokemonDashboard = ({ addCards, removePokemon }) => {
     // 6개의 기본 카드(포켓볼 이미지) 생성
     const defaultCards = [...Array(6)].map((_, index) => ({
         id: index,
@@ -26,6 +26,8 @@ const PokemonDashboard = ({ addCards }) => {
         return card;
     });
 
+
+
     return (
         <PokemonDashboardSection>
             <PokemonDashboardTitle>나만의 포켓몬</PokemonDashboardTitle>
@@ -33,8 +35,13 @@ const PokemonDashboard = ({ addCards }) => {
                 {cardsToDisplay.map((pokemon, index) => {
                     // if문 활용하여 ui 구현
                     if (addCards[index]) {
-                        // console.log(addCards[index]);
-                        return <PokemonCard key={pokemon.id} pokemon={addCards[index]} />;
+                        return (
+                            <PokemonCard key={pokemon.id} pokemon={addCards[index]}>
+                                <PokemonDashboardImg src={addCards[index].img_url || PokemonBallImgUrl} alt={addCards[index].korean_name} />
+                                <div>{addCards[index].korean_name}</div>
+                                <PokemonCardDeleteButton onClick={() => removePokemon(addCards[index])}>삭제</PokemonCardDeleteButton>
+                            </PokemonCard>
+                        );
                     }
 
                     return (
@@ -90,6 +97,17 @@ const PokemonDashboardCard = styled.div`
 const PokemonDashboardImg = styled.img`
     width: 50px;
     height: 50px;
+`;
+
+const PokemonCardDeleteButton = styled.button`
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
+    margin: 10px 0px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 `;
 
 export default PokemonDashboard;

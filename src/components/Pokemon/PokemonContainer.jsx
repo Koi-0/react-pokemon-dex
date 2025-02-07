@@ -29,13 +29,16 @@ const PokemonContainer = () => {
         }
     };
 
-    // 포켓몬 제거 함수 (추후 기능 추가 예정)
-    // const removePokemon = () => {};
+    // 포켓몬 제거 함수
+    const removePokemon = (pokemon) => {
+        // console.log(pokemon); // 삭제하려는 포켓몬 객체 확인 불가
+        setAddCards(addCards.filter((element) => element.id !== pokemon.id));
+    };
 
     return (
         <PokemonWrapper>
             <PokemonDashboard addCards={addCards} />
-            <PokemonList addPokemon={addPokemon} />
+            <PokemonList addPokemon={addPokemon} removePokemon={removePokemon} />
         </PokemonWrapper>
     );
 };
