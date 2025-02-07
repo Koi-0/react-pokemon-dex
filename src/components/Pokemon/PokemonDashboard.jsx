@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PokemonCard from "./PokemonCard";
 
 // 기본 포켓볼 이미지 URL
 const PokemonBallImgUrl = "https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png";
@@ -21,6 +22,7 @@ const PokemonDashboard = ({ addCards }) => {
                 korean_name: addCards[index].korean_name, // 추가된 포켓몬의 이름 적용
             };
         }
+
         return card;
     });
 
@@ -28,7 +30,13 @@ const PokemonDashboard = ({ addCards }) => {
         <PokemonDashboardSection>
             <PokemonDashboardTitle>나만의 포켓몬</PokemonDashboardTitle>
             <PokemonDashboardCardList>
-                {cardsToDisplay.map((pokemon) => {
+                {cardsToDisplay.map((pokemon, index) => {
+                    // if문 활용하여 ui 구현
+                    if (addCards[index]) {
+                        // console.log(addCards[index]);
+                        return <PokemonCard key={pokemon.id} pokemon={addCards[index]} />;
+                    }
+
                     return (
                         <PokemonDashboardCard key={pokemon.id}>
                             <PokemonDashboardImg src={pokemon.img_url || PokemonBallImgUrl} alt={pokemon.korean_name} />

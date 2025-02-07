@@ -9,8 +9,8 @@ const PokemonContainer = () => {
 
     // 포켓몬 추가 함수
     const addPokemon = (pokemon) => {
-        console.log(pokemon); // 추가하려는 포켓몬 객체 확인
-        console.log(addCards); // 현재 추가된 포켓몬 목록 출력
+        // console.log(pokemon); // 추가하려는 포켓몬 객체 확인
+        // console.log(addCards); // 현재 추가된 포켓몬 목록 출력
 
         // 이미 6개의 포켓몬이 추가된 경우
         if (addCards.length >= 6) {
