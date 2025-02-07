@@ -1,21 +1,29 @@
 import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, addPokemon }) => {
+    // "추가" 버튼 클릭 시 실행되는 함수
     const handleAddButton = () => {
-        addPokemon(pokemon);
+        addPokemon(pokemon); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
     };
 
     return (
         <PokemonCardDiv addPokemon={addPokemon}>
+            {/* 포켓몬 이미지 */}
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
+
+            {/* 포켓몬 정보 */}
             <PokemonCardContent>
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
                 <PokemonCardId>No.{pokemon.id}</PokemonCardId>
             </PokemonCardContent>
+
+            {/* 포켓몬 추가 버튼 */}
             <PokemonCardButton onClick={handleAddButton}>추가</PokemonCardButton>
         </PokemonCardDiv>
     );
 };
+
+/* 스타일 정의 (styled-components) */
 
 const PokemonCardDiv = styled.div`
     background-color: rgb(255, 255, 255);
