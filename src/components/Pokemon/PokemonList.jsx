@@ -8,7 +8,7 @@ const PokemonList = ({ addPokemon, addCards }) => {
             <PokemonCardList>
                 {/* MOCK_DATA를 순회하며 PokemonCard 컴포넌트 생성 */}
                 {MOCK_DATA.map((pokemon) => (
-                    <PokemonCard key={pokemon.id} pokemon={pokemon} addPokemon={addPokemon} addCards={addCards} />
+                    <PokemonCard key={pokemon.id} pokemon={pokemon} addCards={addCards} addPokemon={addPokemon} isDashboard={false} />
                 ))}
             </PokemonCardList>
         </div>

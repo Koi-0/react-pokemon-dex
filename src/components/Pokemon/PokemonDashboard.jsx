@@ -12,44 +12,26 @@ const PokemonDashboard = ({ addCards, removePokemon }) => {
         korean_name: "pokemon_ball_default_image",
     }));
 
-    // 추가된 포켓몬을 보여주는 함수
-    const cardsToDisplay = defaultCards.map((card, index) => {
-        // addCards 배열에 추가된 포켓몬이 있을 경우, 첫 번째 카드만 바꾸기
-        if (addCards[index]) {
-            return {
-                ...card,
-                img_url: addCards[index].img_url, // 추가된 포켓몬의 이미지 적용
-                korean_name: addCards[index].korean_name, // 추가된 포켓몬의 이름 적용
-            };
-        }
-
-        return card;
-    });
-
-
-
     return (
         <PokemonDashboardSection>
             <PokemonDashboardTitle>나만의 포켓몬</PokemonDashboardTitle>
             <PokemonDashboardCardList>
-                {cardsToDisplay.map((pokemon, index) => {
-                    // if문 활용하여 ui 구현
-                    if (addCards[index]) {
-                        return (
-                            <PokemonCard key={pokemon.id} pokemon={addCards[index]}>
-                                <PokemonDashboardImg src={addCards[index].img_url || PokemonBallImgUrl} alt={addCards[index].korean_name} />
-                                <div>{addCards[index].korean_name}</div>
-                                <PokemonCardDeleteButton onClick={() => removePokemon(addCards[index])}>삭제</PokemonCardDeleteButton>
-                            </PokemonCard>
-                        );
-                    }
-
-                    return (
-                        <PokemonDashboardCard key={pokemon.id}>
-                            <PokemonDashboardImg src={pokemon.img_url || PokemonBallImgUrl} alt={pokemon.korean_name} />
-                        </PokemonDashboardCard>
-                    );
-                })}
+                {defaultCards.map((card, index) => (
+                    <div key={index}>
+                        {addCards[index] ? (
+                            <PokemonCard
+                                key={index}
+                                pokemon={addCards[index]}
+                                removePokemon={removePokemon}
+                                isDashboard={true} // 대시보드에서만 "삭제" 버튼 보이게 설정
+                            />
+                        ) : (
+                            <PokemonDashboardCard>
+                                <PokemonDashboardImg src={card.img_url} alt="포켓볼" />
+                            </PokemonDashboardCard>
+                        )}
+                    </div>
+                ))}
             </PokemonDashboardCardList>
         </PokemonDashboardSection>
     );
@@ -97,17 +79,6 @@ const PokemonDashboardCard = styled.div`
 const PokemonDashboardImg = styled.img`
     width: 50px;
     height: 50px;
-`;
-
-const PokemonCardDeleteButton = styled.button`
-    color: rgb(255, 255, 255);
-    background-color: rgb(255, 0, 0);
-    margin: 10px 0px;
-    padding: 5px 10px;
-    font-size: 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 `;
 
 export default PokemonDashboard;

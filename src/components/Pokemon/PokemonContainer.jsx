@@ -9,11 +9,9 @@ const PokemonContainer = () => {
 
     // 포켓몬 추가 함수
     const addPokemon = (pokemon) => {
-        // console.log(pokemon); // 추가하려는 포켓몬 객체 확인
-        // console.log(addCards); // 현재 추가된 포켓몬 목록 출력
-
         // 이미 6개의 포켓몬이 추가된 경우
         if (addCards.length >= 6) {
+            console.log("최대 6개의 포켓몬만 추가할 수 있습니다!");
             alert("최대 6개의 포켓몬만 추가할 수 있습니다!");
             return;
         }
@@ -22,23 +20,33 @@ const PokemonContainer = () => {
         if (!addCards.some((element) => element.id === pokemon.id)) {
             // 새로운 포켓몬일 경우 추가
             setAddCards([...addCards, pokemon]);
+            console.log(`${pokemon.korean_name}이(가) 추가되었습니다.`);
             alert(`[${pokemon.korean_name}]이(가) 추가되었습니다.`);
         } else {
             // 이미 추가된 포켓몬일 경우 경고 메시지 출력
+            console.log(`${pokemon.korean_name}은(는) 이미 추가되었습니다!`);
             alert(`[${pokemon.korean_name}]은(는) 이미 추가되었습니다!`);
         }
     };
 
     // 포켓몬 제거 함수
-    const removePokemon = (pokemon) => {
-        // console.log(pokemon); // 삭제하려는 포켓몬 객체 확인 불가
-        setAddCards(addCards.filter((element) => element.id !== pokemon.id));
+    const removePokemon = (id) => {
+        // 삭제할 포켓몬 찾기
+        const removedPokemon = addCards.find((pokemon) => pokemon.id === id);
+
+        if (removedPokemon) {
+            console.log(`${removedPokemon.korean_name}이(가) 삭제되었습니다.`);
+            alert(`[${removedPokemon.korean_name}]이(가) 삭제되었습니다.`);
+        }
+
+        // 포켓몬 제거
+        setAddCards(addCards.filter((pokemon) => pokemon.id !== id));
     };
 
     return (
         <PokemonWrapper>
-            <PokemonDashboard addCards={addCards} />
-            <PokemonList addPokemon={addPokemon} removePokemon={removePokemon} />
+            <PokemonDashboard addCards={addCards} removePokemon={removePokemon} />
+            <PokemonList addCards={addCards} addPokemon={addPokemon} removePokemon={removePokemon} />
         </PokemonWrapper>
     );
 };

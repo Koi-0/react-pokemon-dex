@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
+const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
     // "추가" 버튼 클릭 시 실행되는 함수
     const handleAddButton = () => {
         addPokemon(pokemon); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
@@ -8,25 +8,20 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon }) => {
 
     // "삭제" 버튼 클릭 시 실행되는 함수
     const handleDeleteButton = () => {
-        console.log("삭제하려는 포켓몬:", pokemon); // 삭제할 포켓몬을 확인
-        removePokemon(pokemon);
+        removePokemon(pokemon.id); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
     };
 
     return (
-        <PokemonCardDiv addPokemon={addPokemon}>
+        <PokemonCardDiv>
             {/* 포켓몬 이미지 */}
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
-
             {/* 포켓몬 정보 */}
             <PokemonCardContent>
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
                 <PokemonCardId>No.{pokemon.id}</PokemonCardId>
             </PokemonCardContent>
-
-            {/* 포켓몬 추가 버튼 */}
-            <PokemonCardAddButton onClick={handleAddButton}>추가</PokemonCardAddButton>
-            <PokemonCardAddButton onClick={handleDeleteButton}>삭제</PokemonCardAddButton>
-            <br />
+            {/* isDashboard 값에 따라 버튼 변경 */}
+            {isDashboard ? <PokemonCardAddButton onClick={handleDeleteButton}>삭제</PokemonCardAddButton> : <PokemonCardAddButton onClick={handleAddButton}>추가</PokemonCardAddButton>}
         </PokemonCardDiv>
     );
 };
