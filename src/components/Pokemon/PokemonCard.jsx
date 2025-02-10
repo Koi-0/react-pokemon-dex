@@ -5,9 +5,6 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
     // 페이지 이동을 위한 `useNavigate` 훅 사용
     const navigate = useNavigate();
 
-    // 포켓몬 아이디 번호를 세 자리로 포맷팅
-    const formattedId = String(pokemon.id).padStart(3, "0");
-
     // "추가" 버튼 클릭 시 실행되는 함수
     const handleAddButton = (e) => {
         e.stopPropagation(); // 부모 클릭 이벤트 방지
@@ -32,7 +29,7 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
             {/* 포켓몬 정보 */}
             <PokemonCardContent>
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
-                <PokemonCardId>No.{formattedId}</PokemonCardId>
+                <PokemonCardId>No.{String(pokemon.id).padStart(3, "0")}</PokemonCardId> {/* 포켓몬 아이디 번호를 세 자리로 변경 */}
             </PokemonCardContent>
             {/* isDashboard 값에 따라 버튼 변경 */}
             {isDashboard ? <PokemonCardAddButton onClick={handleDeleteButton}>삭제</PokemonCardAddButton> : <PokemonCardAddButton onClick={handleAddButton}>추가</PokemonCardAddButton>}
