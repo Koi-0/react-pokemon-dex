@@ -2,13 +2,14 @@ import styled from "styled-components";
 import MOCK_DATA from "../../data/mock-data"; // Pokemon 데이터 가져오기
 import PokemonCard from "./PokemonCard";
 
-const PokemonList = ({ addPokemon, addCards }) => {
+const PokemonList = ({ addCards, addPokemon }) => {
     return (
         <div>
             <PokemonCardList>
                 {/* MOCK_DATA를 순회하며 PokemonCard 컴포넌트 생성 */}
                 {MOCK_DATA.map((pokemon) => (
                     <PokemonCard key={pokemon.id} pokemon={pokemon} addCards={addCards} addPokemon={addPokemon} isDashboard={false} />
+                    // isDashboard : true 또는 false 값을 가지는 boolean 타입의 prop(속성)
                 ))}
             </PokemonCardList>
         </div>
