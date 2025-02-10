@@ -48,7 +48,7 @@ const PokemonContainer = () => {
     return (
         <PokemonWrapper>
             <PokemonDashboard addCards={addCards} removePokemon={removePokemon} />
-            <PokemonList addCards={addCards} addPokemon={addPokemon} removePokemon={removePokemon} />
+            <PokemonList addCards={addCards} addPokemon={addPokemon} />
         </PokemonWrapper>
     );
 };
