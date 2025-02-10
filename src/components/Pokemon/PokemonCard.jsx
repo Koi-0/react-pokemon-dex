@@ -1,18 +1,30 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
+    // 페이지 이동을 위한 `useNavigate` 훅 사용
+    const navigate = useNavigate();
+
+    // 카드 클릭 시 해당 포켓몬 디테일 페이지로 이동하는 함수
+    const handleCardClick = () => {
+        navigate(`/pokemon/${pokemon.id}`); // 해당 포켓몬 ID로 이동
+    };
+
     // "추가" 버튼 클릭 시 실행되는 함수
-    const handleAddButton = () => {
+    const handleAddButton = (e) => {
+        e.stopPropagation(); // 부모 클릭 이벤트 방지
         addPokemon(pokemon); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
     };
 
     // "삭제" 버튼 클릭 시 실행되는 함수
-    const handleDeleteButton = () => {
+    const handleDeleteButton = (e) => {
+        e.stopPropagation(); // 부모 클릭 이벤트 방지
         removePokemon(pokemon.id); // 부모 컴포넌트에서 전달된 removePokemon 함수 호출
     };
 
     return (
-        <PokemonCardDiv>
+        // 클릭하면 디테일 페이지 이동
+        <PokemonCardDiv onClick={handleCardClick}>
             {/* 포켓몬 이미지 */}
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
             {/* 포켓몬 정보 */}
