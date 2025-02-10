@@ -5,6 +5,9 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
     // 페이지 이동을 위한 `useNavigate` 훅 사용
     const navigate = useNavigate();
 
+    // 포켓몬 아이디 번호를 세 자리로 포맷팅
+    const formattedId = String(pokemon.id).padStart(3, '0');
+
     // 카드 클릭 시 해당 포켓몬 디테일 페이지로 이동하는 함수
     const handleCardClick = () => {
         navigate(`/pokemon/${pokemon.id}`); // 해당 포켓몬 ID로 이동
@@ -30,7 +33,7 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
             {/* 포켓몬 정보 */}
             <PokemonCardContent>
                 <PokemonCardTitle>{pokemon.korean_name}</PokemonCardTitle>
-                <PokemonCardId>No.{pokemon.id}</PokemonCardId>
+                <PokemonCardId>No.{formattedId}</PokemonCardId>
             </PokemonCardContent>
             {/* isDashboard 값에 따라 버튼 변경 */}
             {isDashboard ? <PokemonCardAddButton onClick={handleDeleteButton}>삭제</PokemonCardAddButton> : <PokemonCardAddButton onClick={handleAddButton}>추가</PokemonCardAddButton>}
