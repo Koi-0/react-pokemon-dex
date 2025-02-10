@@ -18,6 +18,7 @@ const PokemonDashboard = ({ addCards, removePokemon }) => {
             <PokemonDashboardCardList>
                 {defaultCards.map((card, index) => (
                     <div key={index}>
+                        {/* 포켓몬이 추가된 경우 ? 포켓몬 카드 표시 : 포켓볼 이미지 표시 */}
                         {addCards[index] ? (
                             <PokemonCard
                                 key={index}
