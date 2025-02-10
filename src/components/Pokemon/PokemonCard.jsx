@@ -6,12 +6,7 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
     const navigate = useNavigate();
 
     // 포켓몬 아이디 번호를 세 자리로 포맷팅
-    const formattedId = String(pokemon.id).padStart(3, '0');
-
-    // 카드 클릭 시 해당 포켓몬 디테일 페이지로 이동하는 함수
-    const handleCardClick = () => {
-        navigate(`/pokemon/${pokemon.id}`); // 해당 포켓몬 ID로 이동
-    };
+    const formattedId = String(pokemon.id).padStart(3, "0");
 
     // "추가" 버튼 클릭 시 실행되는 함수
     const handleAddButton = (e) => {
@@ -27,7 +22,11 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
 
     return (
         // 클릭하면 디테일 페이지 이동
-        <PokemonCardDiv onClick={handleCardClick}>
+        <PokemonCardDiv
+            onClick={() => {
+                navigate(`/pokemon-detail/${pokemon.id}`); // 카드 클릭 시 해당 포켓몬 ID로 이동
+            }}
+        >
             {/* 포켓몬 이미지 */}
             <PokemonCardImg src={pokemon.img_url} alt={pokemon.korean_name} />
             {/* 포켓몬 정보 */}

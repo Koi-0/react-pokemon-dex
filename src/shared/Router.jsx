@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import DexPage from "../pages/DexPage";
-import PokemonDetail from "../components/Pokemon/PokemonDetail";
+import PokemonDetail from "../components/pokemon/PokemonDetail";
 
 // 2. Router 컴포넌트를 정의한다.
 // BrowserRouter를 감싸는 이유는 SPA(Single Page Application)에서 브라우저가 새로고침 없이 페이지 이동을 가능하게 해준다.
@@ -17,7 +17,7 @@ const Router = () => {
 				 */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/dex" element={<DexPage />} />
-                <Route path="/pokemon/:id" element={<PokemonDetail />} />
+                <Route path="/pokemon-detail/:id" element={<PokemonDetail />} />
             </Routes>
         </BrowserRouter>
     );

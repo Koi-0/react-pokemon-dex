@@ -17,6 +17,7 @@ const RootLayoutContainer = styled.main`
 // RootLayoutContent : 페이지의 중앙 정렬 및 최대 너비 설정
 const RootLayoutContent = styled.div`
     max-width: 1280px;
+    width: 100%;
     margin: 0 auto;
 `;
 
