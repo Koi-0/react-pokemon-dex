@@ -8,7 +8,7 @@ const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
 
     // "삭제" 버튼 클릭 시 실행되는 함수
     const handleDeleteButton = () => {
-        removePokemon(pokemon.id); // 부모 컴포넌트에서 전달된 addPokemon 함수 호출
+        removePokemon(pokemon.id); // 부모 컴포넌트에서 전달된 removePokemon 함수 호출
     };
 
     return (
