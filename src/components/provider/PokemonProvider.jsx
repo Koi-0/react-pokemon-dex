@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PokemonContext } from "../../context/PokemonContext";
 
+// Context 생성
 const PokemonProvider = ({ children }) => {
     const [addCards, setAddCards] = useState([]);
     // addCards : 현재 추가된 포켓몬들의 리스트
@@ -43,7 +44,7 @@ const PokemonProvider = ({ children }) => {
         setAddCards(addCards.filter((pokemon) => pokemon.id !== id));
     };
 
-    return <PokemonContext.Provider value={{ addPokemon, removePokemon }}>{children}</PokemonContext.Provider>;
+    return <PokemonContext.Provider value={{ addCards, addPokemon, removePokemon }}>{children}</PokemonContext.Provider>;
 };
 
 export default PokemonProvider;

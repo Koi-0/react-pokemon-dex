@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import PokemonDashboard from "./PokemonDashboard";
 import PokemonList from "./PokemonList";
+import PokemonProvider from "../provider/PokemonProvider";
 
 const PokemonContainer = () => {
     return (
-        <PokemonWrapper>
-            <PokemonDashboard />
-            <PokemonList />
-        </PokemonWrapper>
+        <PokemonProvider>
+            <PokemonWrapper>
+                <PokemonDashboard />
+                <PokemonList />
+            </PokemonWrapper>
+        </PokemonProvider>
     );
 };
 

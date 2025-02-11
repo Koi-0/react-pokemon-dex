@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { useContext } from "react";
+import { PokemonContext } from "../../context/PokemonContext";
 
 // 기본 포켓볼 이미지 URL
 const PokemonBallImgUrl = "https://react-6-pokemon.vercel.app/assets/pokeball-13iwdk7Y.png";
 
-const PokemonDashboard = ({ addCards, removePokemon }) => {
+const PokemonDashboard = () => {
+    const { addCards, removePokemon } = useContext(PokemonContext);
+
     // 6개의 기본 카드(포켓볼 이미지) 생성
     const defaultCards = [...Array(6)].map((_, index) => ({
         id: index,
