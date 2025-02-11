@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../../context/PokemonContext";
 
-const PokemonCard = ({ pokemon, addPokemon, removePokemon, isDashboard }) => {
+const PokemonCard = ({ pokemon, addPokemon, isDashboard }) => {
+    const { removePokemon } = useContext(PokemonContext);
+
     // 페이지 이동을 위한 `useNavigate` 훅 사용
     const navigate = useNavigate();
 
